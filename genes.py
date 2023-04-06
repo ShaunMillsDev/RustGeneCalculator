@@ -30,7 +30,6 @@ class GeneCalculator:
             if ((result.count('Y') == 2 and result.count('G') == 4) or (result.count('Y') == 3 and result.count('G') == 3) or (result.count('Y') == 4 and result.count('G') == 2)):
                 print("BEST FOUND")
                 print(self.plant_dict.get(result), result, file=self.file_best)
-                #self.write_results_to_file("best.txt", self.plant_dict.get(result), result)
 
     def calculate_genes(self):
         gene_weights = {
@@ -73,16 +72,12 @@ class GeneCalculator:
             
             # append output_genes string
             self.output_genes += max_gene_name
+
         # if output_genes aren't stored, store them in file   
         if self.output_genes not in self.final_result:
             self.final_result.append(self.output_genes)
             self.plant_dict.update({self.output_genes: list(self.plant_array)})
             print(self.plant_array, self.output_genes, file=self.file)
-            #self.write_results_to_file("output.txt", self.plant_array, self.output_genes)
-
-    # def write_results_to_file(self, file_name, plant_combination, gene_sequence):
-    #     with open(file_name, "a") as f:
-    #         print(plant_combination, gene_sequence, file=f)
 
 # get plants from user, split and add to array
 def get_user_input():
